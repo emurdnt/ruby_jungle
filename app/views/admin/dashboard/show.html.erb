@@ -1,2 +1,35 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<section class="cart-show">
+
+
+  <header class="page-header">
+    <h1>Admin &raquo; Store Dashboard</h1>
+    
+  </header>
+  <div class="panel panel-default products">
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">Category</th>
+          <th>Count</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tr>
+        <td colspan="2">Products</td>
+        <td><%= @product.count%></td>
+        <td><%= link_to "Products", :products %></td>
+      </tr>
+      <tr>
+        <td colspan="2">Product Categories</td>
+        <td><%= @category.count%></td>
+        <td>
+            <% @category.each do |category| %>
+              <p><%= link_to category.name, category %></p>
+            <% end %>
+         </td>
+      </tr>
+    </table>
+
+  </div>
+</section>

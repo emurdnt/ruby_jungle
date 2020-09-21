@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  resource :about, only: [:show], :controller => "about"
   root to: 'products#index'
 
   resources :products, only: [:index, :show]
@@ -12,10 +12,21 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:create, :show]
 
+  # devise_for :about
+  
+
+
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
+    resources :categories, except: [:edit, :update, :show]
   end
+
+
+
+  # namespace :about do
+   
+  # end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
